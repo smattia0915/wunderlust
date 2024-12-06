@@ -49,16 +49,6 @@ table {
 	border-spacing: 0;
 }
 /* end code reset */
-:root{
-    --yellow: #f6d64a;
-    --teal: #55bcd5;
-    --purple: #9b26b0;
-    --blue: #499bd2;
-    --dark-gray: #222;
-    --light-gray: #eaeaea;
-    --white: #fff;
-    --black: #000;
-}
 @import url('https://fonts.googleapis.com/css2?family=Molle&family=Montserrat&display=swap');
 /* font-family: "Molle", serif;
   font-weight: 400;
@@ -69,14 +59,21 @@ table {
   font-weight: 400;
   font-style: normal;*/
 
+:root{
+    --yellow: #f6d64a;
+    --teal: #55bcd5;
+    --purple: #9b26b0;
+    --blue: #499bd2;
+    --dark-gray: #222;
+    --light-gray: #eaeaea;
+    --white: #fff;
+    --black: #000;
+}
 h1, h2, h3{
     font-family: "Molle", serif;
 }
 h4, p, q, small, nav, button, form{
     font-family: "Montserrat", serif;
-}
-header{
-	background-image: linear-gradient(var(--teal), var(--white));
 }
 h1{
 	font-size: 2rem;
@@ -111,6 +108,9 @@ h2{
 	width: auto;
 	height: auto;
 }
+/* mobile first 
+
+makes nav button appear, toggle and menu drop down */
 .btn {
 	background-color: var(--yellow);
 	color: var(--black);
@@ -118,7 +118,6 @@ h2{
 	font-size: 16px;
 	border: none;
 }
-
 .menu-toggle {
 	position: relative;
 	display: inline-block;
@@ -128,8 +127,7 @@ h2{
 	position: absolute;
 	background-color: var(--teal);
 	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	z-index: 1;
+	
 }
 .menu-expand a {
 	color: black;
@@ -147,6 +145,7 @@ h2{
 	background-color: var(--black); 
 	color: white;
 }
+/* changes the color and sizes of form elements */
 #contact input{
 	border: 2px solid var(--purple);
 }
@@ -168,180 +167,203 @@ select{
 	color: var(--purple)
 }
 
-
-@media screen and (max-width: 320px){
-	header{
-		display: grid;
-		grid-template-rows: repeat(3, 1fr);
-		grid-template-columns: repeat(2, 1fr);
-		width: calc(100% - 2rem);
-
-	}
-	header p{
-		grid-column: 1 / span 2;
-		grid-row: 3;
-		margin-left: 10px;
-		margin-right: 10px;
-		font-size: smaller;
-	}
-	header img{
-		grid-column: 1 / 2;
-		grid-row: 1;
-		width: 100px;
-	}
-	h1{
-		grid-column: 1 / span 2;
-		grid-row: 2;
-		margin-left: 10px;
-	}
-	h2{
-		margin-left: 10px;
-	}
-	.btn{
-		grid-column: 2/3;
-		grid-row: 1;
-		justify-self: end;
-		align-self: start;
-		width: 500px;
-		height: 20px;
-	}
-	#intro{
-		display: flex;
-		flex-wrap: wrap;
-		align-content: space-evenly;
-	}
-	#intro p{
-		width: calc(100% - 2em);
-		margin: 10px;
-		font-size: smaller;
-	}
-	#img-grid{
-		gap: 0.5em;
-	}
-	#img-grid img{
-		width: calc(100% - 2rem);
-		margin-bottom: .5em;
-		margin-left: 1px;
-		margin-right: 1px;
-	}
-	
-	#plan{
-		display: flex;
-		flex-flow: column wrap;
-		align-content: space-evenly;
-		background-color: var(--yellow);
-		width: calc(100% - 2rem);
-		padding-bottom: 50px;
-		padding-top: 20px;
-	}
-	h3{
-		font-size: x-large;
-		margin-left: 10px;
-	}
-	#plan section{
-		display: block;
-		background-color: var(--teal);
-		border-radius: 5px;
-		border: 2px solid var(--white);
-		margin-top: 10px;
-	}
-	#plan img{
-		width: 110px;
-		margin: 40px;
-	}
-	h4{
-		justify-self: center;
-		margin-top: 10px;
-		font-size: larger;
-		font-weight: 600;
-	}
-	p{
-		font-size: smaller;
-	}
-	q{
-		font-size: smaller;
-		justify-self: center;
-		
-	}
-	q::before { content: open-quote; }
-	q::after { content: close-quote; }
-	#testimonials{
-		margin-top: 50px;
-		margin-bottom: 50px;
-		display: flex;
-		flex-wrap: wrap;
-		align-content: space-evenly;
-	}
-	#testimonials div > section{
-		justify-items: center;
-		padding: 10px;
-	}
-	#testimonials img{	
-		width: 120px;
-	}
-	#about{
-		display: flex;
-		flex-wrap: wrap;
-		background-color: var(--blue);
-		padding: 20px;
-	}
-	#about div{
-		display: grid;
-		grid-template-rows: repeat(2, 1fr);
-		grid-template-columns: repeat(2, 1fr);
-		gap: .05rem;
-		padding: 10px;
-	}
-	#about div > section{
-		justify-items: center;
-	}
-	#about img{
-		height: 50px;
-	}
-	#about h4{
-		font-size:medium;
-	}
-	#about p{
-		font-size: small;
-	}
-	#contact form{
-		display: flex;
-		flex-wrap: wrap;
-		align-content: space-evenly;
-		padding: 20px;
-	}
-	#contact input[type=text]{
-		width: calc(100% - 2rem);
-		height: 30px;
-	}
-	#contact input[type=tel]{
-		width: calc(100% - 2rem);
-		height: 30px;
-	}
-	#contact input[type=email]{
-		width: calc(100% - 2rem);
-		height: 30px;
-	}
-	#contact #selects select{
-		width: inherit;
-		height: 30px;
-	}
-	#contact h3 .form-required{
-		font-size: smaller;
-		font-weight: lighter;
-	}
-	#contact #mySubmit{
-		width: 100px;
-		height: 30px;
-		background-color: var(--purple);
-		color: var(--white);
-		margin-top: 10px;
-		width: calc(100% - 2rem);
-	}
+/* header */ 
+header{
+	display: grid;
+	grid-template-rows: repeat(3, 1fr);
+	grid-template-columns: repeat(2, 1fr);
+	width: calc(100% - 2rem);
+	background-image: linear-gradient(var(--teal), var(--white));
+}
+header p{
+	grid-column: 1 / span 2;
+	grid-row: 3;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: smaller;
+}
+header img{
+	grid-column: 1 / 2;
+	grid-row: 1;
+	width: 100px;
+}
+h1{
+	grid-column: 1 / span 2;
+	grid-row: 2;
+	margin-left: 10px;
+}
+h2{
+	margin-left: 10px;
+}
+.btn{
+	grid-column: 2/3;
+	grid-row: 1;
+	justify-self: end;
+	align-self: start;
+	width: 500px;
+	height: 20px;
+}
+/* majorca and three images */
+#intro{
+	display: flex;
+	flex-wrap: wrap;
+	align-content: space-evenly;
+}
+#intro p{
+	width: calc(100% - 2em);
+	margin: 10px;
+	font-size: smaller;
+}
+#img-grid{
+	gap: 0.5em;
+}
+#img-grid img{
+	width: calc(100% - 2rem);
+	margin-bottom: .5em;
+	margin-left: 1px;
+	margin-right: 1px;
+}
+/* plan with four graphics */ 
+#plan{
+	display: flex;
+	flex-flow: column wrap;
+	align-content: space-evenly;
+	background-color: var(--yellow);
+	width: calc(100% - 2rem);
+	padding-bottom: 50px;
+	padding-top: 20px;
+}
+h3{
+	font-size: x-large;
+	margin-left: 10px;
+}
+#plan section{
+	display: block;
+	background-color: var(--teal);
+	border-radius: 5px;
+	border: 2px solid var(--white);
+	margin-top: 10px;
+}
+#plan img{
+	width: 110px;
+	margin: 40px;
+}
+h4{
+	justify-self: center;
+	margin-top: 10px;
+	font-size: larger;
+	font-weight: 600;
+}
+p{
+	font-size: smaller;
+}
+/* quotes */
+q{
+	font-size: smaller;
+	justify-self: center;
+	text-align: center;
+}
+q::before { content: open-quote; }
+q::after { content: close-quote; }
+/* testimonials with four people */
+#testimonials{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: space-evenly;
+}
+#testimonials div > section{
+	justify-items: center;
+	padding: 10px;
+}
+#testimonials img{	
+	width: 120px;
+}
+/* about with four graphics */
+#about{
+	display: flex;
+	flex-wrap: wrap;
+	background-color: var(--blue);
+	padding: 20px;
+}
+#about div{
+	display: grid;
+	grid-template-rows: repeat(2, 1fr);
+	grid-template-columns: repeat(2, 1fr);
+	gap: .05rem;
+	padding: 10px;
+}
+#about div > section{
+	justify-items: center;
+}
+#about img{
+	height: 50px;
+}
+#about h4{
+	font-size:medium;
+}
+#about p{
+	font-size: small;
+}
+/* adjusting form layout */
+#contact form{
+	display: flex;
+	flex-wrap: wrap;
+	align-content: space-evenly;
+	padding: 20px;
+}
+#contact input[type=text]{
+	width: calc(100% - 2rem);
+	height: 30px;
+}
+#contact input[type=tel]{
+	width: calc(100% - 2rem);
+	height: 30px;
+}
+#contact input[type=email]{
+	width: calc(100% - 2rem);
+	height: 30px;
+}
+#contact #selects select{
+	width: inherit;
+	height: 30px;
+}
+#contact h3 .form-required{
+	font-size: smaller;
+	font-weight: lighter;
+}
+#contact #mySubmit{
+	width: 100px;
+	height: 30px;
+	background-color: var(--purple);
+	color: var(--white);
+	margin-top: 10px;
+	width: calc(100% - 2rem);
+}
+footer{
+	background-color: var(--light-gray);
+	color: var(--dark-gray);
+	font-size: smaller;
+	font-weight: lighter;
+	height: 50px;
+	text-align: center;
+}
+footer a{
+	color: var(--dark-gray);
+	text-decoration: none;
+	margin: 100px;
+	font-weight: lighter;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 
+
+
+/* start of smaller screens */
 @media screen and (min-width: 320px){
+	/* header */ 
 	header{
 		display: grid;
 		grid-template-rows: repeat(3, 1fr);
@@ -377,6 +399,7 @@ select{
 		width: 500px;
 		height: 20px;
 	}
+	/* majorca and three images */
 	#intro{
 		display: flex;
 		flex-wrap: wrap;
@@ -396,7 +419,7 @@ select{
 		margin-left: 1px;
 		margin-right: 1px;
 	}
-	
+	/* plan with four graphics */ 
 	#plan{
 		display: flex;
 		flex-flow: column wrap;
@@ -430,13 +453,15 @@ select{
 	p{
 		font-size: smaller;
 	}
+	/* quotes */
 	q{
 		font-size: smaller;
 		justify-self: center;
-		
+		text-align: center;
 	}
 	q::before { content: open-quote; }
 	q::after { content: close-quote; }
+	/* testimonials with four people */
 	#testimonials{
 		margin-top: 50px;
 		margin-bottom: 50px;
@@ -451,6 +476,7 @@ select{
 	#testimonials img{	
 		width: 120px;
 	}
+	/* about with four graphics */
 	#about{
 		display: flex;
 		flex-wrap: wrap;
@@ -476,6 +502,7 @@ select{
 	#about p{
 		font-size: small;
 	}
+	/* adjusting form layout */
 	#contact form{
 		display: flex;
 		flex-wrap: wrap;
@@ -509,14 +536,55 @@ select{
 		color: var(--white);
 		margin-top: 10px;
 		width: calc(100% - 2rem);
+	}
+	footer{
+		background-color: var(--light-gray);
+		color: var(--dark-gray);
+		font-size: smaller;
+		font-weight: lighter;
+		height: 50px;
+		text-align: center;
+	}
+	footer a{
+		color: var(--dark-gray);
+		text-decoration: none;
+		margin: 100px;
+		font-weight: lighter;
+		padding-top: 10px;
+		padding-bottom: 10px;
 	}
 }
 
-
+/* medium screen */
 @media screen and (min-width: 768px){
-
-
-
+	/* removes menu drop down button */
+	.btn{
+		visibility: hidden;
+	}
+	.menu-expand{
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		visibility: visible;
+		gap: 1rem;;
+	}
+	.menu-expand li{
+		display: block;
+		background-color: var(--white);
+		color: #000;
+	}
+	.dropdown-content a:hover {
+		display: none !important;
+	}
+	.menu-toggle:hover .menu-expand {
+		display: grid;
+	}
+	.menu-toggle:hover .btn {
+		display: none !important;
+	}
+	.menu-expand a:hover{
+		background-color: var(--yellow);
+	}
+	/* header */ 
 	header{
 		display: grid;
 		grid-template-rows: repeat(3, 1fr);
@@ -553,6 +621,7 @@ select{
 		width: 500px;
 		height: 20px;
 	}
+	/* majorca and three images */
 	#intro{
 		display: flex;
 		flex-wrap: wrap;
@@ -571,20 +640,27 @@ select{
 		margin-bottom: .5em;
 		margin-left: 1px;
 		margin-right: 1px;
-	}
-
-
-
-	
-	
+	}	
+	/* plan with four graphics */ 
 	#plan{
 		display: flex;
-		flex-flow: column wrap;
+		flex-wrap: wrap;
 		background-color: var(--yellow);
 		width: calc(100% - 2rem);
 		padding-bottom: 50px;
 		padding-top: 20px;
 	}
+	#plan div{
+		display: grid;
+		grid-template-rows: repeat(2, 1fr);
+		grid-template-columns: repeat(2, 1fr);
+		gap: .05rem;
+		padding: 10px;
+	}
+	#plan div > section{
+		justify-items: center;
+	}
+
 	h3{
 		font-size: x-large;
 		margin-left: 10px;
@@ -597,9 +673,12 @@ select{
 		margin-top: 10px;
 	}
 	#plan img{
-		width: 110px;
-		margin: 40px;
+		width: 4000px;
+	
 	}
+
+
+
 	h4{
 		justify-self: center;
 		margin-top: 10px;
@@ -609,27 +688,36 @@ select{
 	p{
 		font-size: smaller;
 	}
+	/* quotes */
 	q{
 		font-size: smaller;
 		justify-self: center;
-		
+		text-align: center;
 	}
 	q::before { content: open-quote; }
 	q::after { content: close-quote; }
+	/* testimonials with four people */
 	#testimonials{
-		margin-top: 50px;
-		margin-bottom: 50px;
 		display: flex;
 		flex-wrap: wrap;
-		align-content: space-evenly;
+		width: calc(100% - 2rem);
+		padding-bottom: 50px;
+		padding-top: 20px;
+	}
+	#testimonials div{
+		display: grid;
+		grid-template-rows: repeat(2, 1fr);
+		grid-template-columns: repeat(2, 1fr);
+		gap: .05rem;
+		padding: 10px;
 	}
 	#testimonials div > section{
 		justify-items: center;
-		padding: 10px;
 	}
 	#testimonials img{	
 		width: 120px;
 	}
+	/* about with four graphics */
 	#about{
 		display: flex;
 		flex-wrap: wrap;
@@ -638,8 +726,7 @@ select{
 	}
 	#about div{
 		display: grid;
-		grid-template-rows: repeat(2, 1fr);
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(4, 1fr);
 		gap: .05rem;
 		padding: 10px;
 	}
@@ -655,11 +742,13 @@ select{
 	#about p{
 		font-size: small;
 	}
+
+	/* adjusting form layout */
 	#contact form{
-		display: flex;
-		flex-wrap: wrap;
-		align-content: space-evenly;
-		padding: 20px;
+		display: grid;
+		grid-template-rows: repeat(8, 1fr);
+		gap: .05rem;
+		padding: 10px;
 	}
 	#contact input[type=text]{
 		width: calc(100% - 2rem);
@@ -688,6 +777,22 @@ select{
 		color: var(--white);
 		margin-top: 10px;
 		width: calc(100% - 2rem);
+	}
+	footer{
+		background-color: var(--light-gray);
+		color: var(--dark-gray);
+		font-size: smaller;
+		font-weight: lighter;
+		height: 50px;
+		text-align: center;
+	}
+	footer a{
+		color: var(--dark-gray);
+		text-decoration: none;
+		margin: 100px;
+		font-weight: lighter;
+		padding-top: 10px;
+		padding-bottom: 10px;
 	}
 }
 
@@ -699,5 +804,241 @@ select{
 	grid-template-rows: repeat(4, 1fr);
 	align-content: center;
 	justify-content: center;
+	}
+	/* removes menu drop down button */
+	.btn{
+		visibility: hidden;
+	}
+	.menu-expand{
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: 1;
+		visibility: visible;
+		gap: 1rem;;
+	}
+	.menu-expand li{
+		display: block;
+		background-color: var(--white);
+		color: #000;
+	}
+	.dropdown-content a:hover {
+		display: none !important;
+	}
+	.menu-toggle:hover .menu-expand {
+		display: grid;
+	}
+	.menu-toggle:hover .btn {
+		display: none !important;
+	}
+	.menu-expand a:hover{
+		background-color: var(--yellow);
+	}
+	/* header */ 
+	header{
+		display: grid;
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-columns: repeat(2, 1fr);
+		width: calc(100% - 2rem);
+
+	}
+	header p{
+		grid-column: 1 / span 2;
+		grid-row: 3;
+		margin-left: 10px;
+		margin-right: 10px;
+		font-size: smaller;
+	}
+	header img{
+		grid-column: 1 / 2;
+		grid-row: 1;
+		width: 100px;
+	}
+	h1{
+		grid-column: 1 / span 2;
+		grid-row: 2;
+		margin-left: 10px;
+	}
+	h2{
+		margin-left: 10px;
+		
+	}
+	.btn{
+		grid-column: 2/3;
+		grid-row: 1;
+		justify-self: end;
+		align-self: start;
+		width: 500px;
+		height: 20px;
+	}
+	/* majorca and three images */
+	#intro{
+		display: flex;
+		flex-wrap: wrap;
+		align-content: space-evenly;
+	}
+	#intro p{
+		width: calc(100% - 2em);
+		margin: 10px;
+		font-size: smaller;
+	}
+	#img-grid{
+		gap: 0.5em;
+	}
+	#img-grid img{
+		width: calc(100% - 2rem);
+		margin-bottom: .5em;
+		margin-left: 1px;
+		margin-right: 1px;
+	}
+	/* plan with four graphics */ 
+	#plan{
+		display: flex;
+		flex-wrap: wrap;
+		background-color: var(--yellow);
+		width: calc(100% - 2rem);
+		padding-bottom: 50px;
+		padding-top: 20px;
+	}
+	#plan div{
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: .05rem;
+		padding: 10px;
+	}
+	#plan div > section{
+		justify-items: center;
+	}
+
+	h3{
+		font-size: x-large;
+		margin-left: 10px;
+	}
+	#plan section{
+		display: block;
+		background-color: var(--teal);
+		border-radius: 5px;
+		border: 2px solid var(--white);
+		margin-top: 10px;
+	}
+	#plan img{
+		width: 110px;
+		margin: 40px;
+	}
+	h4{
+		justify-self: center;
+		margin-top: 10px;
+		font-size: larger;
+		font-weight: 600;
+	}
+	p{
+		font-size: smaller;
+	}
+	/* quotes */
+	q{
+		font-size: smaller;
+		justify-self: center;
+		text-align: center;
+	}
+	q::before { content: open-quote; }
+	q::after { content: close-quote; }
+	/* testimonials with four people */
+	#testimonials{
+		display: flex;
+		flex-wrap: wrap;
+		width: calc(100% - 2rem);
+		padding-bottom: 50px;
+		padding-top: 20px;
+	}
+	#testimonials div{
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: .05rem;
+		padding: 10px;
+	}
+	#testimonials div > section{
+		justify-items: center;
+	}
+	#testimonials img{	
+		width: 120px;
+	}
+	/* about with four graphics */
+	#about{
+		display: flex;
+		flex-wrap: wrap;
+		background-color: var(--blue);
+		width: calc(100% - 2rem);
+		padding-bottom: 50px;
+		padding-top: 20px;
+	}
+	#about div{
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: .05rem;
+		padding: 10px;
+	}
+	#about div > section{
+		justify-items: center;
+	}
+	#about img{
+		height: 50px;
+	}
+	#about h4{
+		font-size:medium;
+	}
+	#about p{
+		font-size: small;
+	}
+
+	/* adjusting form layout */
+	#contact form{
+		display: grid;
+		grid-template-rows: repeat(8, 1fr);
+		gap: .05rem;
+		padding: 10px;
+	}
+	#contact input[type=text]{
+		width: calc(100% - 2rem);
+		height: 30px;
+	}
+	#contact input[type=tel]{
+		width: calc(100% - 2rem);
+		height: 30px;
+	}
+	#contact input[type=email]{
+		width: calc(100% - 2rem);
+		height: 30px;
+	}
+	#contact #selects select{
+		width: inherit;
+		height: 30px;
+	}
+	#contact h3 .form-required{
+		font-size: smaller;
+		font-weight: lighter;
+	}
+	#contact #mySubmit{
+		width: 100px;
+		height: 30px;
+		background-color: var(--purple);
+		color: var(--white);
+		margin-top: 10px;
+		width: calc(100% - 2rem);
+	}
+	footer{
+		background-color: var(--light-gray);
+		color: var(--dark-gray);
+		font-size: smaller;
+		font-weight: lighter;
+		height: 50px;
+		text-align: center;
+	}
+	footer a{
+		color: var(--dark-gray);
+		text-decoration: none;
+		margin: 100px;
+		font-weight: lighter;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
 }
-}
+
